@@ -77,18 +77,10 @@ function updateData(){
 }
 
 function deleteData(id){
-    if(confirm("Delete this item?")){
-        if(id === list.length - 1){
-            list.pop();
-        }else if(id === 0){
-            list.shift();
-        }else{
-            var arrAuxIni = list.slice(0,id);
-            var arrAuxEnd = list.slice(id + 1);
-            list = arrAuxIni.concat(arrAuxEnd);
-        }
-        setList(list);
+    if (confirm(`Are you sure to delete ${formatDesc(list[id].desc)}?`)){
+        list.splice(id,1)
     }
+    setList(list);
 }
 
 
